@@ -1,0 +1,12 @@
+.product__media-item {
+  display: none !important;
+}
+.product__media-item.vf-visible {
+  display: block !important;
+}
+.thumbnail-list__item {
+  display: none !important;
+}
+.thumbnail-list__item.vf-visible {
+  display: list-item !important;
+}

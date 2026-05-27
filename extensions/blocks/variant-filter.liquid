@@ -1,0 +1,19 @@
+{% if template.name == 'product' %}
+  {% assign vf_meta = product.metafields.custom.variant_image_config %}
+
+  <script>
+    window.__PRODUCT_ID__ = {{ product.id | json }};
+    (function () {
+      try {
+        var raw    = {{ vf_meta.value | json }};
+        var parsed = (typeof raw === "string") ? JSON.parse(raw) : raw;
+        window.__VARIANT_CONFIG__ = Array.isArray(parsed) ? parsed : [];
+      } catch(e) {
+        window.__VARIANT_CONFIG__ = [];
+      }
+    }());
+  </script>
+
+  <link rel="stylesheet" href="{{ 'variant-filter.css' | asset_url }}">
+  <script src="{{ 'variant-filter.js' | asset_url }}" defer></script>
+{% endif %}

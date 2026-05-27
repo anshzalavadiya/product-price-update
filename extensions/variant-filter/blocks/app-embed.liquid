@@ -1,0 +1,26 @@
+<script>
+(function() {
+  window.__PRODUCT_ID__ = {{ product.id | json }};
+  try {
+    var raw = {{ product.metafields.custom.variant_image_config.value | json }};
+    var parsed = (typeof raw === "string") ? JSON.parse(raw) : raw;
+    window.__VARIANT_CONFIG__ = Array.isArray(parsed) ? parsed : [];
+  } catch(e) {
+    window.__VARIANT_CONFIG__ = [];
+  }
+  console.log("[VF] PRODUCT_ID:", window.__PRODUCT_ID__);
+  console.log("[VF] CONFIG:", window.__VARIANT_CONFIG__.length, "entries");
+})();
+</script>
+
+{{ 'variant-filter.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'variant-filter.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "Variant Media Filter",
+  "target": "body",
+  "templates": ["product"],
+  "settings": []
+}
+{% endschema %}

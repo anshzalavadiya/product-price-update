@@ -1,0 +1,7 @@
+{
+  "name": "Variant Image Filter",
+  "target": "body",
+  "javascript": "variant-filter.js",
+  "stylesheet": "variant-filter.css",
+  "settings": []
+}

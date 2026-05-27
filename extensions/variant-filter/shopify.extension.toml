@@ -1,0 +1,10 @@
+api_version = "2024-04"
+uid = "fa3c060f-8da2-73b8-6eee-935cbc178cd8ac5a6ac9"
+
+[[extensions]]
+type = "theme"
+name = "Variant Media Filter"
+handle = "variant-filter"
+
+[[extensions.targeting]]
+target = "body"

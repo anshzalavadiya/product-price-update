@@ -1,0 +1,9 @@
+.product__media-item.variant-hidden,
+[data-media-id].variant-hidden {
+  display: none !important;
+}
+
+.product__media-item.variant-visible,
+[data-media-id].variant-visible {
+  display: block !important;
+}
