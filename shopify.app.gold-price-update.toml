@@ -1,9 +1,9 @@
 # Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
 
 client_id = "2f27fdb0931b8f0f463263397378fa79"
+name = "gold-price-update"
 application_url = "https://example.com"
 embedded = true
-name = "gold-price-update"
 
 [webhooks]
 api_version = "2026-07"
@@ -14,7 +14,3 @@ scopes = "read_metaobjects,read_products,read_themes,write_metaobjects,write_pro
 
 [auth]
 redirect_urls = [ "https://example.com/api/auth" ]
-
-[build]
-include_config_on_deploy = true
-automatically_update_urls_on_dev = true

@@ -1,49 +1,24 @@
-name = "gold-price-update"
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
 client_id = "2fadd1a2f6e91e4bc23a4ae2f2a448f2"
 application_url = "https://product-price-update-3cqmpkyt8-zansh65-4310s-projects.vercel.app"
 embedded = true
-
-[build]
-automatically_update_urls_on_dev = false
-
-[webhooks]
-api_version = "2024-01"
-
-[[webhooks.subscriptions]]
-topics = [ "app/scopes_update" ]
-uri = "/webhooks/app/scopes_update"
-
-[[webhooks.subscriptions]]
-topics = [ "app/uninstalled" ]
-uri = "/webhooks/app/uninstalled"
-
-[access_scopes]
-scopes = "read_products,write_products,read_metaobjects,write_metaobjects,read_themes,write_themes"
-
-[access.admin]
-direct_api_mode = "online"
-
-[auth]
-redirect_urls = [
-  "https://product-price-update-3cqmpkyt8-zansh65-4310s-projects.vercel.app/api/auth",
-  "https://product-price-update-3cqmpkyt8-zansh65-4310s-projects.vercel.app/api/auth/callback",
-  "https://product-price-update-3cqmpkyt8-zansh65-4310s-projects.vercel.app/api/auth/oauth/callback"
-]
+name = "gold-price-update"
 
 [product.metafields.app.demo_info]
 type = "single_line_text_field"
 name = "Demo Source Info"
 description = "Tracks products created by the Shopify app template for development"
 
-[product.metafields.app.demo_info.access]
-admin = "merchant_read_write"
+  [product.metafields.app.demo_info.access]
+  admin = "merchant_read_write"
 
 [metaobjects.app.example]
 name = "Example"
 description = "An example metaobject definition created by this template"
 
-[metaobjects.app.example.access]
-admin = "merchant_read_write"
+  [metaobjects.app.example.access]
+  admin = "merchant_read_write"
 
 [metaobjects.app.example.fields.title]
 name = "Title"
@@ -53,3 +28,31 @@ required = true
 [metaobjects.app.example.fields.description]
 name = "Description"
 type = "multi_line_text_field"
+
+[access.admin]
+direct_api_mode = "online"
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "read_metaobjects,read_products,read_themes,write_metaobjects,write_products,write_themes"
+
+[auth]
+redirect_urls = [
+  "https://product-price-update-3cqmpkyt8-zansh65-4310s-projects.vercel.app/api/auth",
+  "https://product-price-update-3cqmpkyt8-zansh65-4310s-projects.vercel.app/api/auth/callback",
+  "https://product-price-update-3cqmpkyt8-zansh65-4310s-projects.vercel.app/api/auth/oauth/callback"
+]
+
+[webhooks]
+api_version = "2024-01"
+
+  [[webhooks.subscriptions]]
+  uri = "/webhooks/app/uninstalled"
+  topics = [ "app/uninstalled" ]
+
+  [[webhooks.subscriptions]]
+  uri = "/webhooks/app/scopes_update"
+  topics = [ "app/scopes_update" ]
+
+[build]
+automatically_update_urls_on_dev = true
